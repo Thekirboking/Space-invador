@@ -1,8 +1,8 @@
+// java
 import javax.swing.*;
 
 public class Main {
     public static void main(String[] args){
-        //window settings
         int tilesize = 32;
         int rows = 16;
         int collums = 16;
@@ -10,13 +10,14 @@ public class Main {
         int boardHeight = tilesize * rows;
 
         JFrame frame = new JFrame("space invaders");
-        frame.setVisible(true);
-        frame.setResizable(false);
-        frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(boardWidth, boardHeight);
 
-        SpaceInvaders spaceInvaders =new SpaceInvaders();
+        SpaceInvaders spaceInvaders = new SpaceInvaders();
         frame.add(spaceInvaders);
+
+        frame.pack();                         // calcule la taille d'après le preferredSize du panneau
+        frame.setLocationRelativeTo(null);    // centre la fenêtre maintenant que sa taille est connue
+        frame.setResizable(false);
+        frame.setVisible(true);
     }
 }
