@@ -1,25 +1,24 @@
-// java
 import javax.swing.*;
 
 public class Main {
-    public static void main(String[] args){
-        int tilesize = 32;
+    public static void main(String[] args) throws Exception {
+        //window variables
+        int tileSize = 32;
         int rows = 16;
-        int collums = 16;
-        int boardWidth = tilesize * collums;
-        int boardHeight = tilesize * rows;
+        int columns = 16;
+        int boardWidth = tileSize * columns; // 32 * 16 = 512px
+        int boardHeight = tileSize * rows; // 32 * 16 = 512px
 
-        JFrame frame = new JFrame("space invaders");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        JFrame frame = new JFrame("Space Invaders");
         frame.setSize(boardWidth, boardHeight);
+        frame.setLocationRelativeTo(null);
         frame.setResizable(false);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         SpaceInvaders spaceInvaders = new SpaceInvaders();
         frame.add(spaceInvaders);
-
-        frame.pack();                         // calcule la taille d'après le preferredSize du panneau
-        frame.setLocationRelativeTo(null);    // centre la fenêtre maintenant que sa taille est connue
-        frame.setResizable(false);
+        frame.pack();
+        spaceInvaders.requestFocus();
         frame.setVisible(true);
     }
 }
