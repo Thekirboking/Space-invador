@@ -1,7 +1,20 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import javax.swing.*;
+
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args){
+        //window settings
+        int tilesize = 32;
+        int rows = 16;
+        int collums = 16;
+        int boardWidth = tilesize * collums;
+        int boardHeight = tilesize * rows;
+
+        JFrame frame = new JFrame("space invaders");
+        frame.setVisible(true);
+        frame.setResizable(false);
+        frame.setLocationRelativeTo(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(boardWidth, boardHeight);
 
     }
 }
