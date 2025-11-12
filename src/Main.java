@@ -11,6 +11,8 @@ public class Main {
 
         JFrame frame = new JFrame("space invaders");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(boardWidth, boardHeight);
+        frame.setResizable(false);
 
         SpaceInvaders spaceInvaders = new SpaceInvaders();
         frame.add(spaceInvaders);
