@@ -21,7 +21,6 @@ public class SpaceInvaders extends JPanel implements ActionListener, KeyListener
             this.width = width;
             this.height = height;
             this.img = img;
-            this.velocityX = tileSize;
         }
     }
 
@@ -48,10 +47,13 @@ public class SpaceInvaders extends JPanel implements ActionListener, KeyListener
     int playerHeight = tileSize;
     int playerx = tileSize * columns / 2 - tileSize;
     int playery = boardHeight - tileSize * 2;
+    int playerVelocityX = tileSize;
 
     SpaceInvaders(){
         setPreferredSize(new Dimension(boardWidth, boardHeight));
         setBackground(Color.black);
+        setFocusable(true);
+        addKeyListener(this);
 
         PlayerImg = new ImageIcon("src/assets/player.png").getImage();
         InvaderImg = new ImageIcon("src/assets/invader1.png").getImage();
@@ -91,6 +93,11 @@ public class SpaceInvaders extends JPanel implements ActionListener, KeyListener
 
     @Override
     public void keyReleased(KeyEvent e) {
-
+        if (e.getKeyCode() == KeyEvent.VK_LEFT  && player.x - playerVelocityX >= 0) {
+            player.x -= playerVelocityX;
         }
+        else if (e.getKeyCode() == KeyEvent.VK_RIGHT  && player.x + playerVelocityX + player.width <= boardWidth) {
+            player.x += playerVelocityX;
+        }
+    }
 }
